@@ -3,6 +3,7 @@ package com.tharishaperera.toothcare.controllers;
 import com.tharishaperera.toothcare.models.Dentist;
 import com.tharishaperera.toothcare.models.User;
 import com.tharishaperera.toothcare.services.UserService;
+import com.tharishaperera.toothcare.utils.CheckExistingEmail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,6 +31,9 @@ public class DentistController {
     // create dentist
     @PostMapping()
     public Dentist createDentist(@RequestBody Dentist dentist) {
+        if (CheckExistingEmail.checkEmailExists(dentist.getEmail())) {
+            return null;
+        }
         Dentist newDentist = Dentist.createDentist(dentist.getFirstName(), dentist.getLastName(), dentist.getEmail(), dentist.getMobile(), dentist.getSpecialization(), dentist.getQualification(), dentist.getPassword());
         User createdDentist = userService.createUser(newDentist);
         return (Dentist) createdDentist;

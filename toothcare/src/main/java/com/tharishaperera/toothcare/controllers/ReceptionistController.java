@@ -3,6 +3,7 @@ package com.tharishaperera.toothcare.controllers;
 import com.tharishaperera.toothcare.models.Receptionist;
 import com.tharishaperera.toothcare.models.User;
 import com.tharishaperera.toothcare.services.UserService;
+import com.tharishaperera.toothcare.utils.CheckExistingEmail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,6 +31,9 @@ public class ReceptionistController {
     // create receptionist
     @PostMapping()
     public Receptionist createReceptionist(@RequestBody Receptionist receptionist) {
+        if (CheckExistingEmail.checkEmailExists(receptionist.getEmail())) {
+            return null;
+        }
         Receptionist newReceptionist = Receptionist.createReceptionist(receptionist.getFirstName(), receptionist.getLastName(), receptionist.getEmail(), receptionist.getMobile(), receptionist.getPassword());
         User createdReceptionist = userService.createUser(newReceptionist);
         return (Receptionist) createdReceptionist;

@@ -2,6 +2,7 @@ package com.tharishaperera.toothcare.controllers;
 
 import com.tharishaperera.toothcare.models.Patient;
 import com.tharishaperera.toothcare.services.PatientService;
+import com.tharishaperera.toothcare.utils.CheckExistingEmail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,6 +30,9 @@ public class PatientController {
     // create patient
     @PostMapping()
     public Patient createPatient(@RequestBody Patient patient) {
+        if (CheckExistingEmail.checkEmailExists(patient.getEmail())) {
+            return null;
+        }
         Patient newPatient = Patient.createPatient(patient.getFirstName(), patient.getLastName(), patient.getEmail(), patient.getMobile(), patient.getAddress(), patient.getDob());
         return patientService.createPatient(newPatient);
     }
