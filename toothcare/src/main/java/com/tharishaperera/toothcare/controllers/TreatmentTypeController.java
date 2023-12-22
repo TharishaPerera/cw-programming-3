@@ -1,7 +1,7 @@
 package com.tharishaperera.toothcare.controllers;
 
 import com.tharishaperera.toothcare.models.TreatmentType;
-import com.tharishaperera.toothcare.models.TreatmentTypeRequest;
+import com.tharishaperera.toothcare.requestTypes.TreatmentTypeRequest;
 import com.tharishaperera.toothcare.services.TreatmentTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

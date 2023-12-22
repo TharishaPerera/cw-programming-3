@@ -1,4 +1,4 @@
-package com.tharishaperera.toothcare.models;
+package com.tharishaperera.toothcare.requestTypes;
 
 public class TreatmentTypeRequest {
     private String treatmentTypeName;
