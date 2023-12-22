@@ -11,7 +11,7 @@ import java.util.Optional;
 @Service
 public class AuthService {
     public Optional<User> login(String email, String password) {
-        return UserService.userList.stream()
+        return User.userList.stream()
                 .filter(user -> user.getEmail().equals(email))
                 .filter(user -> user instanceof Dentist || user instanceof Receptionist)
                 .filter(user -> ((UserWithPassword) user).getPassword().equals(password))

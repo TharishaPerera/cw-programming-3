@@ -2,7 +2,11 @@ package com.tharishaperera.toothcare.models;
 
 import com.tharishaperera.toothcare.config.enums.UserType;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
+    public static final List<User> userList = new ArrayList<>();
     private long userId;
     private String firstName;
     private String lastName;

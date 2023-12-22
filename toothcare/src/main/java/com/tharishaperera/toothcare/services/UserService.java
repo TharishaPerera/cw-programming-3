@@ -13,16 +13,14 @@ import java.util.stream.Collectors;
 
 @Service
 public class UserService {
-    public static final List<User> userList = new ArrayList<>();
-
     // get all users
     public List<User> getAllUsers() {
-        return userList;
+        return User.userList;
     }
 
     // create user
     public User createUser(User user) {
-        userList.add(user);
+        User.userList.add(user);
         return user;
     }
 
@@ -38,14 +36,14 @@ public class UserService {
 
     // get user by user id
     public Optional<User> getUserById(long userId) {
-        return userList.stream()
+        return User.userList.stream()
                 .filter(user -> user.getUserId() == userId)
                 .findFirst();
     }
 
     //get receptionist by id
     public Optional<Receptionist> getReceptionistById(long userId) {
-        return userList.stream()
+        return User.userList.stream()
                 .filter(user -> user instanceof Receptionist && user.getUserId() == userId)
                 .map(user -> (Receptionist) user)
                 .findFirst();
@@ -53,7 +51,7 @@ public class UserService {
 
     //get dentist by id
     public Optional<Dentist> getDentistById(long userId) {
-        return userList.stream()
+        return User.userList.stream()
                 .filter(user -> user instanceof Dentist && user.getUserId() == userId)
                 .map(user -> (Dentist) user)
                 .findFirst();
@@ -61,12 +59,12 @@ public class UserService {
 
     // get users by userType
     public List<User> getUsersByUserType(UserType userType) {
-        return userList.stream().filter(user -> user.getUserType().equals(userType)).collect(Collectors.toList());
+        return User.userList.stream().filter(user -> user.getUserType().equals(userType)).collect(Collectors.toList());
     }
 
     // update receptionist by id
     public void updateReceptionistById(long userId, Receptionist updatedReceptionist) {
-        Optional<User> receptionistToUpdate = userList.stream()
+        Optional<User> receptionistToUpdate = User.userList.stream()
                 .filter(user -> user instanceof Receptionist && user.getUserId() == userId)
                 .findFirst();
 
@@ -82,7 +80,7 @@ public class UserService {
 
     // update dentist by id
     public void updateDentistById(long userId, Dentist updatedDentist) {
-        Optional<User> dentistToUpdate = userList.stream()
+        Optional<User> dentistToUpdate = User.userList.stream()
                 .filter(user -> user instanceof Dentist && user.getUserId() == userId)
                 .findFirst();
 
@@ -100,6 +98,6 @@ public class UserService {
 
     // delete user by id
     public void deleteUserById(long userId) {
-        userList.removeIf(user -> user.getUserId() == userId);
+        User.userList.removeIf(user -> user.getUserId() == userId);
     }
 }
