@@ -38,6 +38,6 @@ public class Dentist extends User implements UserWithPassword {
         long userId = Utils.generateId();
         UserType userType = UserType.DENTIST;
         String hashedPassword = SecurityConfig.hashPassword(password);
-        return new Dentist(userId,firstName,lastName,email,mobile,userType,specialization,qualification,password);
+        return new Dentist(userId,firstName,lastName,email,mobile,userType,specialization,qualification,hashedPassword);
     }
 }
