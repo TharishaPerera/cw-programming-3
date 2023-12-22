@@ -1,7 +1,5 @@
 package com.tharishaperera.toothcare.controllers;
 
-import com.tharishaperera.toothcare.models.Dentist;
-import com.tharishaperera.toothcare.models.Receptionist;
 import com.tharishaperera.toothcare.models.User;
 import com.tharishaperera.toothcare.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
