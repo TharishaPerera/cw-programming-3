@@ -27,10 +27,19 @@ public class TreatmentTypeService {
     }
 
     // get treatment type by id
-    public Optional<TreatmentType> getTreatmentTypeById(Long id) {
+    public Optional<TreatmentType> getTreatmentTypeById(long id) {
         return treatmentTypesList.stream()
                 .filter(treatmentType -> treatmentType.getId() == id)
                 .findFirst();
+    }
+
+    // get selected treatments by array of ids
+    public List<Optional<TreatmentType>> getSelectTreatmentTypes(long[] ids) {
+        List<Optional<TreatmentType>> selectedList = new ArrayList<>();
+        for(long id: ids) {
+            selectedList.add(getTreatmentTypeById(id));
+        }
+        return selectedList;
     }
 
     // create treatment type
