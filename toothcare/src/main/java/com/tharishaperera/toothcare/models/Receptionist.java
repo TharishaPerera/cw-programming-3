@@ -4,7 +4,7 @@ import com.tharishaperera.toothcare.config.enums.UserType;
 import com.tharishaperera.toothcare.utils.SecurityConfig;
 import com.tharishaperera.toothcare.utils.Utils;
 
-public class Receptionist extends User{
+public class Receptionist extends User implements UserWithPassword{
     private String password;
 
     public Receptionist(long userId, String firstName, String lastName, String email, long mobile, UserType userType, String password) {

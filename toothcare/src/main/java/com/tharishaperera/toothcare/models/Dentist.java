@@ -4,7 +4,7 @@ import com.tharishaperera.toothcare.config.enums.UserType;
 import com.tharishaperera.toothcare.utils.SecurityConfig;
 import com.tharishaperera.toothcare.utils.Utils;
 
-public class Dentist extends User {
+public class Dentist extends User implements UserWithPassword {
     private String specialization;
     private String qualification;
     private String password;

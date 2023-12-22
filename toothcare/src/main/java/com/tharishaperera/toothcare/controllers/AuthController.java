@@ -1,14 +1,19 @@
 package com.tharishaperera.toothcare.controllers;
 
+import com.tharishaperera.toothcare.models.User;
+import com.tharishaperera.toothcare.services.AuthService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
+    @Autowired
+    private AuthService authService;
     @PostMapping("/login")
-    public void login (@RequestParam String email, @RequestParam String password) {
-        System.out.println(email);
-        System.out.println(password);
-        System.out.println("login endpoint");
+    public Optional<User> login (@RequestParam String email, @RequestParam String password) {
+        return authService.login(email, password);
     }
 }

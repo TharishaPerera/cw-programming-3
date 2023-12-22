@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class UserService {
-    private final List<User> userList = new ArrayList<>();
+    public static final List<User> userList = new ArrayList<>();
 
     // get all users
     public List<User> getAllUsers() {
