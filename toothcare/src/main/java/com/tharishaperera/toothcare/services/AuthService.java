@@ -4,7 +4,6 @@ import com.tharishaperera.toothcare.models.Dentist;
 import com.tharishaperera.toothcare.models.Receptionist;
 import com.tharishaperera.toothcare.models.User;
 import com.tharishaperera.toothcare.models.UserWithPassword;
-import com.tharishaperera.toothcare.utils.SecurityConfig;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
