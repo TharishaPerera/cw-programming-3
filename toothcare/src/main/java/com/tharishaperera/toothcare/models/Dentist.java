@@ -1,6 +1,7 @@
 package com.tharishaperera.toothcare.models;
 
 import com.tharishaperera.toothcare.config.enums.UserType;
+import com.tharishaperera.toothcare.interfaces.UserWithPassword;
 import com.tharishaperera.toothcare.utils.SecurityConfig;
 import com.tharishaperera.toothcare.utils.Utils;
 
