@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/schedules")
+@CrossOrigin(origins = "${frontend.allowed-origin}")
 public class ScheduleController {
     @Autowired
     private ScheduleService scheduleService;

@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/invoices")
+@CrossOrigin(origins = "${frontend.allowed-origin}")
 public class InvoiceController {
     @Autowired
     private InvoiceService invoiceService;
