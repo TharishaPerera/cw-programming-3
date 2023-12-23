@@ -10,13 +10,13 @@ import {
   FormItem,
   FormMessage,
 } from "../ui/form";
+import { API_URL } from "@/config/config";
+import { toast } from "sonner";
 
 const LoginSchema = z.object({
   email: z.string().min(1, "Please enter your email address").email(),
   password: z.string().min(1, "Please enter your password"),
 });
-
-type LoginSchemaType = z.infer<typeof LoginSchema>;
 
 const LoginForm = () => {
   const form = useForm<z.infer<typeof LoginSchema>>({
@@ -27,8 +27,19 @@ const LoginForm = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof LoginSchema>) {
+  async function onSubmit(values: z.infer<typeof LoginSchema>) {
     console.log(values);
+    const loginResponse = await fetch(API_URL + `/auth/login?email=${values.email}&password=${values.password}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (!loginResponse.ok) {
+      toast.error("Invalid credentials, please check and try again.");
+    } else {
+      window.location.href = "/home";
+    }
   }
 
   return (

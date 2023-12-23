@@ -45,8 +45,6 @@ function App() {
             {/* Dentists */}
             <Route path="/dentists">
               <Route index element={<Dentists />} />
-              {/* <Route path="create" element={<CreateAppointment />} />
-              <Route path="update/:id" element={<UpdateAppointment />} /> */}
             </Route>
             {/* Patients */}
             <Route path="/patients">
