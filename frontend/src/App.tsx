@@ -11,6 +11,7 @@ import Patients from "./routes/home/patients";
 import Dentists from "./routes/home/dentist";
 import Invoices from "./routes/home/invoices";
 import ViewInvoice from "./routes/home/invoices/view";
+import Payment from "./routes/home/payments";
 
 function App() {
   return (
@@ -51,6 +52,11 @@ function App() {
             {/* Invoices */}
             <Route path="/invoices">
               <Route index element={<Invoices />} />
+              <Route path="view/:id" element={<ViewInvoice />} />
+            </Route>
+            {/* Payments */}
+            <Route path="/payments">
+              <Route index element={<Payment />} />
               <Route path="view/:id" element={<ViewInvoice />} />
             </Route>
           </Route>
