@@ -46,8 +46,8 @@ To get started with the project, follow these steps:
   - The backend API is available at http://localhost:8080.
 
 ## Folder Sturcture
-Project structure is as follows
-.
+Project structure is as follows.
+
 ├── toothcare/            # Spring Boot backend application
 │   ├── src/
 │   │   ├── main/
