@@ -1,7 +1,14 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Edit, ToggleLeft, ToggleRight, Trash } from "lucide-react";
 import { toast } from "sonner";
+import {
+  CalendarIcon,
+  Edit,
+  Search,
+  ToggleLeft,
+  ToggleRight,
+  Trash,
+} from "lucide-react";
 
 import {
   AlertDialog,
@@ -14,14 +21,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+
 import {
   Table,
   TableBody,
@@ -32,7 +32,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { API_URL } from "@/config/config";
-import { format } from "@/lib/utils";
+import { cn, format } from "@/lib/utils";
+import { Input } from "@/components/ui/input";
 
 interface Data {
   appointmentId: number;
@@ -53,10 +54,11 @@ interface TreatmentType {
   treatmentTypePrice: number;
 }
 
-const Appointments: React.FC = () => {
+const AppointmentsByName: React.FC = () => {
   const [data, setData] = useState<Data[]>([]);
   const [treatmentTypes, setTreatmentTypes] = useState<TreatmentType[]>([]);
   const [checkedIds, setCheckedIds] = useState<number[]>([]);
+  const [patientName, setPatientName] = React.useState<string>("");
 
   const handleCheckboxChange = (treatmentTypeId: number) => {
     setCheckedIds((prevCheckedIds) => {
@@ -117,7 +119,7 @@ const Appointments: React.FC = () => {
       .then(() => {
         toast.error("Appointment deleted successfully");
         const redirectTo = () => {
-          window.location.href = "/appointments";
+          window.location.href = "/appointments/by-name";
         };
         setTimeout(redirectTo, 1000);
       })
@@ -214,13 +216,12 @@ const Appointments: React.FC = () => {
       window.location.href = "/invoices/view/" + invoice.invoiceId;
     }
     const redirectTo = () => {
-      window.location.href = "/appointments";
+      window.location.href = "/appointments/by-name";
     };
     setTimeout(redirectTo, 1000);
   };
 
   const handleRegFeeStatus = async (appointmentId: number) => {
-    // get appointment to update
     const response = await fetch(API_URL + "/appointments/" + appointmentId);
     if (!response.ok) {
       toast.error("Something went wrong");
@@ -250,7 +251,7 @@ const Appointments: React.FC = () => {
       .then(() => {
         toast.error("Appointment updated successfully");
         const redirectTo = () => {
-          window.location.href = "/appointments";
+          window.location.href = "/appointments/by-name";
         };
         setTimeout(redirectTo, 1000);
       })
@@ -264,35 +265,65 @@ const Appointments: React.FC = () => {
     window.location.href = "appointments/update/" + appointmentId;
   };
 
+  const loadDataByDate = async () => {
+    try {
+      // appointments
+      const appointmentResponse = await fetch(
+        API_URL + "/appointments/by-name?name=" + patientName
+      );
+      if (!appointmentResponse.ok) {
+        toast.error("Something went wrong");
+      }
+
+      try {
+        const appointment = await appointmentResponse.json();
+        setData(appointment);
+      } catch (error) {
+        toast.info("No appointments for the searched user");
+      }
+
+      // treatment types
+      const treatmentTypesResponse = await fetch(API_URL + "/treatment-types");
+      if (!treatmentTypesResponse.ok) {
+        toast.error("Something went wrong");
+      }
+
+      const treatmentTypes = await treatmentTypesResponse.json();
+      setTreatmentTypes(treatmentTypes);
+    } catch (error) {
+      console.log(error);
+      toast.error("Error occurred when data fetching");
+    }
+  };
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPatientName(event.target.value);
+  };
+
   return (
     <div className="w-screen px-28 space-y-10">
       <div className="flex justify-between items-center">
-        <h2 className="text-center text-2xl font-semibold">Appointments</h2>
+        <h2 className="text-center text-2xl font-semibold">
+          Filter Appointments By Patient Name
+        </h2>
         <div className="space-x-2">
-          <Link to="/home">
-            <Button className="uppercase">Home</Button>
+          <Link to="/appointments">
+            <Button className="uppercase">Back</Button>
           </Link>
-          <Link to="/appointments/create">
-            <Button className="uppercase">Create</Button>
-          </Link>
-          <DropdownMenu>
-            <DropdownMenuTrigger>
-              <p className="bg-gray-200 py-2 px-4 rounded-lg">Filters</p>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>Filter Appointments By</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>
-                <Link to="by-date">Appointment Date</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link to="by-appointment-id">Appointment Id</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link to="by-name">Patient Name</Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+        </div>
+      </div>
+      <div>
+        <div className="w-full flex justify-end space-x-1">
+          <Input
+              type="text"
+              placeholder="Patient Name"
+              value={patientName}
+              onChange={handleInputChange}
+              className="w-80"
+            />
+          <Button variant="outline" size="icon" onClick={loadDataByDate}>
+            <Search className="w-5 h-5" />
+          </Button>
         </div>
       </div>
       <div>
@@ -334,13 +365,9 @@ const Appointments: React.FC = () => {
                   <AlertDialog>
                     <AlertDialogTrigger>
                       {item.status == "COMPLETE" ? (
-                        <div title="Appointment Status Pending">
-                          <ToggleRight className="w-4 h-4" />
-                        </div>
+                        <ToggleRight className="w-4 h-4" />
                       ) : (
-                        <div title="Appointment Status Complete">
-                          <ToggleLeft className="w-4 h-4" />
-                        </div>
+                        <ToggleLeft className="w-4 h-4" />
                       )}
                     </AlertDialogTrigger>
                     <AlertDialogContent>
@@ -401,16 +428,11 @@ const Appointments: React.FC = () => {
                     onClick={() => handleRegFeeStatus(item.appointmentId)}
                     variant="secondary"
                     size="icon"
-                    // title="Registration Fee Status"
                   >
                     {item.regFeeStatus == "PAID" ? (
-                      <div title="Registration Fee Pending">
-                        <ToggleRight className="w-4 h-4" />
-                      </div>
+                      <ToggleRight className="w-4 h-4" />
                     ) : (
-                      <div title="Registration Fee Complete">
-                        <ToggleLeft className="w-4 h-4" />
-                      </div>
+                      <ToggleLeft className="w-4 h-4" />
                     )}
                   </Button>
                   <Button
@@ -430,4 +452,4 @@ const Appointments: React.FC = () => {
   );
 };
 
-export default Appointments;
+export default AppointmentsByName;

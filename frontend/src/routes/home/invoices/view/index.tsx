@@ -46,9 +46,9 @@ interface Data {
     };
     treatmentTypes: [
       {
-        treatmentTypeId: number;
-        treatmentName: string;
-        price: number;
+        id: number;
+        treatmentTypeName: string;
+        treatmentTypePrice: number;
       }
     ];
   };
@@ -89,7 +89,7 @@ const ViewInvoice = () => {
       if (data?.treatment?.appointment) {
         try {
           const paymentResponse = await fetch(
-            API_URL + "/payments/" + data?.treatment?.appointment.appointmentId
+            API_URL + "/payments/appointment/" + data?.treatment?.appointment.appointmentId
           );
           if (!paymentResponse.ok) {
             toast.error("Something went wrong");
@@ -119,10 +119,7 @@ const ViewInvoice = () => {
         },
         body: JSON.stringify({
           invoice: data,
-          amount: data?.totalAmount,
-          date: format(new Date()),
           paymentMethod: selectedValue,
-          paymentStatus: "PAID",
         }),
       });
       if (!paymentResponse.ok) {
@@ -209,8 +206,8 @@ const ViewInvoice = () => {
             {data?.treatment.treatmentTypes.map((treatment, index) => (
               <div key={index} className="col-span-2">
                 <div className="grid grid-cols-2 gap-3">
-                  <div className="font-medium">{treatment.treatmentName}</div>
-                  <div>: Rs. {treatment.price}</div>
+                  <div className="font-medium">{treatment.treatmentTypeName}</div>
+                  <div>: Rs. {treatment.treatmentTypePrice}</div>
                 </div>
               </div>
             ))}
