@@ -8,6 +8,7 @@ import MenuPage from "./routes/home/menu";
 import Schedules from "./routes/home/schedules";
 import Appointments from "./routes/home/appointment";
 import Patients from "./routes/home/patients";
+import Dentists from "./routes/home/dentist";
 
 function App() {
   return (
@@ -32,6 +33,12 @@ function App() {
             {/* Schedules */}
             <Route path="/schedules">
               <Route index element={<Schedules />} />
+              {/* <Route path="create" element={<CreateAppointment />} />
+              <Route path="update/:id" element={<UpdateAppointment />} /> */}
+            </Route>
+            {/* Dentists */}
+            <Route path="/dentists">
+              <Route index element={<Dentists />} />
               {/* <Route path="create" element={<CreateAppointment />} />
               <Route path="update/:id" element={<UpdateAppointment />} /> */}
             </Route>
