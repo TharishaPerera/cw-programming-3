@@ -8,10 +8,10 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
-// singleton design pattern appointment class
+// builder design pattern appointment class
 public class Appointment {
     public static final List<Appointment> appointments = new ArrayList<>();
-    private static Appointment instance;
+
     private long appointmentId;
     private LocalDate appointmentDate;
     private LocalTime appointmentTime;
@@ -24,17 +24,6 @@ public class Appointment {
     private Appointment() {
     }
 
-    // public method to get the instance of the Appointment class
-    public static Appointment getInstance() {
-        if (instance == null) {
-            instance = new Appointment();
-        }
-        return instance;
-    }
-
-    public static void setInstance(Appointment instance) {
-        Appointment.instance = instance;
-    }
     public long getAppointmentId() {
         return appointmentId;
     }
@@ -78,17 +67,47 @@ public class Appointment {
         this.regFeeStatus = regFeeStatus;
     }
 
+    public static class Builder {
+        private final Appointment appointment;
+
+        public Builder() {
+            this.appointment = new Appointment();
+        }
+
+        public Builder withAppointmentDate(LocalDate appointmentDate){
+            appointment.setAppointmentDate(appointmentDate);
+            return this;
+        }
+        public Builder withAppointmentTime(LocalTime appointmentTime){
+            appointment.setAppointmentTime(appointmentTime);
+            return this;
+        }
+        public Builder withPatient(Patient patient) {
+            appointment.setPatient(patient);
+            return this;
+        }
+        public Builder withDentist(Dentist dentist) {
+            appointment.setDentist(dentist);
+            return this;
+        }
+        public Builder withRegFeeStatus(Status regFeeStatus) {
+            appointment.setRegFeeStatus(regFeeStatus);
+            return this;
+        }
+        public Appointment build() {
+            appointment.setAppointmentId(Utils.generateId());
+            return appointment;
+        }
+    }
+
     // create appointment
     public static Appointment createAppointment(LocalDate appointmentDate, LocalTime appointmentTime, Patient patient, Dentist dentist, Status regFeeStatus){
-        long appointmentId = Utils.generateId();
-        Appointment appointment = Appointment.getInstance();
-        appointment.setAppointmentId(appointmentId);
-        appointment.setAppointmentDate(appointmentDate);
-        appointment.setAppointmentTime(appointmentTime);
-        appointment.setPatient(patient);
-        appointment.setDentist(dentist);
-        appointment.setRegFeeStatus(regFeeStatus);
-
-        return appointment;
+        return new Appointment.Builder()
+                .withAppointmentDate(appointmentDate)
+                .withAppointmentTime(appointmentTime)
+                .withPatient(patient)
+                .withDentist(dentist)
+                .withRegFeeStatus(regFeeStatus)
+                .build();
     }
 }
