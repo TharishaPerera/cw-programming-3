@@ -28,7 +28,6 @@ const LoginForm = () => {
   });
 
   async function onSubmit(values: z.infer<typeof LoginSchema>) {
-    console.log(values);
     const loginResponse = await fetch(API_URL + `/auth/login?email=${values.email}&password=${values.password}`, {
       method: "POST",
       headers: {

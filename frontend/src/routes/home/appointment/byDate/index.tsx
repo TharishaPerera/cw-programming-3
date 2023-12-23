@@ -284,7 +284,6 @@ const AppointmentsByDate: React.FC = () => {
       }
 
       const appointment = await appointmentResponse.json();
-      console.log(appointment)
       if (appointment.length > 0) {
         setData(appointment);
       } else {

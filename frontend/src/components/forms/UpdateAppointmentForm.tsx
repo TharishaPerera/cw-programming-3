@@ -73,7 +73,6 @@ interface Appointment {
 }
 
 const UpdateAppointmentForm = (id: number) => {
-  console.log(id.id);
   // yesterday date for date picker
   var today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -114,7 +113,6 @@ const UpdateAppointmentForm = (id: number) => {
 
     fetchData();
   }, []);
-  console.log(data)
 
   const form = useForm<z.infer<typeof AppointmentSchema>>({
     resolver: zodResolver(AppointmentSchema),
@@ -133,8 +131,6 @@ const UpdateAppointmentForm = (id: number) => {
   });
 
   async function onSubmit(values: z.infer<typeof AppointmentSchema>) {
-    console.log(values);
-
     try {
       // first create patient
       const patientResponse = await fetch(API_URL + "/users/patients", {
@@ -164,7 +160,6 @@ const UpdateAppointmentForm = (id: number) => {
         toast.error("Dentist fetching failed");
       }
       const dentist = await dentistResponse.json();
-      console.log(dentist);
 
       // then create the appointment
       const appointmentResponse = await fetch(API_URL + "/appointments", {

@@ -73,7 +73,6 @@ const Invoices = () => {
 
     fetchData();
   }, []);
-  console.log(data)
 
   const handleView = (invoiceId: number) => {
     window.location.href = "invoices/view/" + invoiceId;

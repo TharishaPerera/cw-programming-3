@@ -100,8 +100,6 @@ const AppointmentForm = () => {
   });
 
   async function onSubmit(values: z.infer<typeof AppointmentSchema>) {
-    console.log(values);
-
     try {
       // first create patient
       const patientResponse = await fetch(API_URL + "/users/patients", {
@@ -129,7 +127,6 @@ const AppointmentForm = () => {
         toast.error("Dentist fetching failed");
       }
       const dentist = await dentistResponse.json();
-      console.log(dentist)
 
       // then create the appointment
       const appointmentResponse = await fetch(API_URL + "/appointments", {
@@ -156,10 +153,6 @@ const AppointmentForm = () => {
     } catch (error) {
       console.log(error)
       toast.error("Error occurred when creating the appointment");
-      // const redirectTo = () => {
-      //   window.location.href = "/appointments/create";
-      // };
-      // setTimeout(redirectTo, 1000);
     }
   }
 
