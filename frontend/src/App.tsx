@@ -12,6 +12,11 @@ import Dentists from "./routes/home/dentist";
 import Invoices from "./routes/home/invoices";
 import ViewInvoice from "./routes/home/invoices/view";
 import Payment from "./routes/home/payments";
+import CreateAppointment from "./routes/home/appointment/create";
+import UpdateAppointment from "./routes/home/appointment/update";
+import AppointmentsByDate from "./routes/home/appointment/byDate";
+import AppointmentsByName from "./routes/home/appointment/byName";
+import AppointmentsById from "./routes/home/appointment/byId";
 
 function App() {
   return (
@@ -27,23 +32,19 @@ function App() {
             {/* Appointments */}
             <Route path="/appointments">
               <Route index element={<Appointments />} />
-              {/* <Route path="create" element={<CreateAppointment />} />
+              <Route path="create" element={<CreateAppointment />} />
               <Route path="update/:id" element={<UpdateAppointment />} />
               <Route path="by-date" element={<AppointmentsByDate />} />
               <Route path="by-appointment-id" element={<AppointmentsById />} />
-              <Route path="by-name" element={<AppointmentsByName />} /> */}
+              <Route path="by-name" element={<AppointmentsByName />} />
             </Route>
             {/* Schedules */}
             <Route path="/schedules">
               <Route index element={<Schedules />} />
-              {/* <Route path="create" element={<CreateAppointment />} />
-              <Route path="update/:id" element={<UpdateAppointment />} /> */}
             </Route>
             {/* Dentists */}
             <Route path="/dentists">
               <Route index element={<Dentists />} />
-              {/* <Route path="create" element={<CreateAppointment />} />
-              <Route path="update/:id" element={<UpdateAppointment />} /> */}
             </Route>
             {/* Patients */}
             <Route path="/patients">

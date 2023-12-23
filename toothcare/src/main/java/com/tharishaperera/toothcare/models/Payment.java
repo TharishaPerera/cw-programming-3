@@ -67,7 +67,7 @@ public class Payment {
         long paymentId = Utils.generateId();
         double amount = invoice.getTotalAmount();
         LocalDateTime createdAt = LocalDateTime.now();
-        Status paymentStatus = Status.PENDING;
+        Status paymentStatus = Status.PAID;
 
         return new Payment(paymentId, invoice, amount, createdAt, paymentMethod, paymentStatus);
     }

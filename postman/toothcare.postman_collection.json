@@ -1,0 +1,1167 @@
+{
+	"info": {
+		"_postman_id": "f9bde99f-1986-42ea-8f77-446123c50e5b",
+		"name": "NEW PROJECT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19403159"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "receptionist@user.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Receptionists",
+			"item": [
+				{
+					"name": "Create receptionist",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Receptionist\",\n    \"lastName\": \"toothcare\",\n    \"email\": \"receptionist@email.com\",\n    \"mobile\": 13434234,\n    \"password\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/receptionists",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"receptionists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all receptionists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/receptionists",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"receptionists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get receptionist by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/receptionists/7724",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"receptionists",
+								"7724"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update receptionist",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Receptionist\",\n    \"lastName\": \"User\",\n    \"email\": \"receptionist@user.com\",\n    \"mobile\": 13434234,\n    \"password\": \"12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/receptionists/8713",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"receptionists",
+								"8713"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete receptionists",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/receptionists/7724",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"receptionists",
+								"7724"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dentists",
+			"item": [
+				{
+					"name": "Create dentist",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"User\",\n    \"lastName\": \"test\",\n    \"email\": \"user@email.com\",\n    \"mobile\": 13434234,\n    \"specialization\": \"Nervs\",\n    \"qualification\": \"\",\n    \"password\": \"12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/dentists",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"dentists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all dentists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/dentists",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"dentists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get dentist by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/dentists/2613",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"dentists",
+								"2613"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update dentist",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Dentist\",\n    \"lastName\": \"User\",\n    \"email\": \"dentist@user.com\",\n    \"mobile\": 13434234,\n    \"specialization\": \"Nervs\",\n    \"qualification\": \"MBBS\",\n    \"password\": \"12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/dentists/2613",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"dentists",
+								"2613"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete dentists",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/dentists/2613",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"dentists",
+								"2613"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Patients",
+			"item": [
+				{
+					"name": "Create patient",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"User\",\n    \"lastName\": \"test\",\n    \"email\": \"testuser@email.com\",\n    \"mobile\": 13434234,\n    \"address\": \"Ja Ela\",\n    \"dob\": \"2000-07-16\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/patients",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"patients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all patients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/patients",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"patients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get patient by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/patients/8783",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"patients",
+								"8783"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update patient",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"User\",\n    \"lastName\": \"test\",\n    \"email\": \"user@email\",\n    \"mobile\": 13434234,\n    \"userType\": \"PATIENT\",\n    \"address\": \"Colombo\",\n    \"dob\": \"1997-08-19\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/patients/4521",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"patients",
+								"4521"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Patient",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/patients/8783",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"patients",
+								"8783"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Schedule",
+			"item": [
+				{
+					"name": "Get all schedules",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/schedules",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"schedules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create schedule",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dentist\": {\n        \"userId\": 2613,\n        \"firstName\": \"user\",\n        \"lastName\": \"test\",\n        \"email\": \"user@email\",\n        \"mobile\": 13434234,\n        \"userType\": \"DENTIST\",\n        \"specialization\": \"\",\n        \"qualification\": \"\",\n        \"password\": \"$2a$10$/UFfn8ZFWu9qp8e6mRK6V.7sd4nGuziAORT5WYGdLD48/poEcFsa2\"\n    },\n    \"day\": \"Monday\",\n    \"startTime\": \"18:00\",\n    \"endTime\": \"22:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/schedules",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"schedules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get schedule by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/schedules/9443",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"schedules",
+								"9443"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update schedule",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"scheduleId\": 9443,\n    \"dentist\": {\n        \"userId\": 2613,\n        \"firstName\": \"user\",\n        \"lastName\": \"test\",\n        \"email\": \"user@email\",\n        \"mobile\": 13434234,\n        \"userType\": \"DENTIST\",\n        \"specialization\": \"\",\n        \"qualification\": \"\",\n        \"password\": \"$2a$10$/UFfn8ZFWu9qp8e6mRK6V.7sd4nGuziAORT5WYGdLD48/poEcFsa2\"\n    },\n    \"day\": \"Tuesday\",\n    \"startTime\": \"15:00:00\",\n    \"endTime\": \"22:00:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/schedules/9443",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"schedules",
+								"9443"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete schedule",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/schedules/9443",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"schedules",
+								"9443"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Treatments",
+			"item": [
+				{
+					"name": "Get all treatments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/treatments",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"treatments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get treatment by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/treatments/6929",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"treatments",
+								"6929"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create treatment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"appointment\": {\n        \"appointmentId\": 9139,\n        \"appointmentDate\": \"2023-12-30\",\n        \"appointmentTime\": \"19:00:00\",\n        \"patient\": {\n            \"userId\": 8362,\n            \"firstName\": \"user\",\n            \"lastName\": \"test\",\n            \"email\": \"user@email.com\",\n            \"mobile\": 13434234,\n            \"userType\": \"PATIENT\",\n            \"address\": \"Ja Ela\",\n            \"dob\": \"2000-07-16\"\n        },\n        \"dentist\": {\n            \"userId\": 2649,\n            \"firstName\": \"user\",\n            \"lastName\": \"test\",\n            \"email\": \"user@email.com\",\n            \"mobile\": 13434234,\n            \"userType\": \"DENTIST\",\n            \"specialization\": \"Nervs\",\n            \"qualification\": \"\",\n            \"password\": \"$2a$10$IX3UngozExomWQJVFq6FHeF//ox.KleJXSpDW4C0FOuz59uMfqZ7e\"\n        },\n        \"status\": \"PENDING\",\n        \"regFeeStatus\": \"PENDING\"\n    },\n    \"treatmentTypes\": [\n        {\n            \"id\": 9619,\n            \"treatmentTypeName\": \"Filling\",\n            \"treatmentTypePrice\": 3000.0\n        },\n        {\n            \"id\": 1297,\n            \"treatmentTypeName\": \"Whitening\",\n            \"treatmentTypePrice\": 1500.0\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/treatments",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"treatments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update treatment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"appointment\": {\n        \"appointmentId\": 9139,\n        \"appointmentDate\": \"2023-12-30\",\n        \"appointmentTime\": \"19:00:00\",\n        \"patient\": {\n            \"userId\": 8362,\n            \"firstName\": \"user\",\n            \"lastName\": \"test\",\n            \"email\": \"user@email.com\",\n            \"mobile\": 13434234,\n            \"userType\": \"PATIENT\",\n            \"address\": \"Ja Ela\",\n            \"dob\": \"2000-07-16\"\n        },\n        \"dentist\": {\n            \"userId\": 2649,\n            \"firstName\": \"user\",\n            \"lastName\": \"test\",\n            \"email\": \"user@email.com\",\n            \"mobile\": 13434234,\n            \"userType\": \"DENTIST\",\n            \"specialization\": \"Nervs\",\n            \"qualification\": \"\",\n            \"password\": \"$2a$10$IX3UngozExomWQJVFq6FHeF//ox.KleJXSpDW4C0FOuz59uMfqZ7e\"\n        },\n        \"status\": \"PENDING\",\n        \"regFeeStatus\": \"PENDING\"\n    },\n    \"treatmentTypes\": [\n        {\n            \"id\": 1297,\n            \"treatmentTypeName\": \"Whitening\",\n            \"treatmentTypePrice\": 1500.0\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/treatments/6929",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"treatments",
+								"6929"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete treatment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/treatments/6929",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"treatments",
+								"6929"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Treatment Types",
+			"item": [
+				{
+					"name": "Get all treatment types",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/treatment-types",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"treatment-types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get treatment type by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/treatment-types/3182",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"treatment-types",
+								"3182"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create treatment type",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"treatmentTypeName\": \"NervFilling\",\n    \"treatmentTypePrice\": 3000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/treatment-types",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"treatment-types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get selected treatment types",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    7802,\n    9427\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/treatment-types/selected",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"treatment-types",
+								"selected"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Appointments",
+			"item": [
+				{
+					"name": "Get all appointments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/appointments",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get appointment by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/appointments/4107",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointments",
+								"4107"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get appointment by date",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/appointments/by-date?date=2023-12-30",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointments",
+								"by-date"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2023-12-30"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get appointments by patient name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/appointments/by-name?name=user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointments",
+								"by-name"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "user"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create appointment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"appointmentDate\": \"2023-12-30\",\n    \"appointmentTime\": \"19:00\",\n    \"patient\": {\n        \"userId\": 8362,\n        \"firstName\": \"user\",\n        \"lastName\": \"test\",\n        \"email\": \"user@email.com\",\n        \"mobile\": 13434234,\n        \"userType\": \"PATIENT\",\n        \"address\": \"Ja Ela\",\n        \"dob\": \"2000-07-16\"\n    },\n    \"dentist\": {\n        \"userId\": 2649,\n        \"firstName\": \"user\",\n        \"lastName\": \"test\",\n        \"email\": \"user@email.com\",\n        \"mobile\": 13434234,\n        \"userType\": \"DENTIST\",\n        \"specialization\": \"Nervs\",\n        \"qualification\": \"\",\n        \"password\": \"$2a$10$IX3UngozExomWQJVFq6FHeF//ox.KleJXSpDW4C0FOuz59uMfqZ7e\"\n    },\n    \"regFeeStatus\": \"PENDING\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/appointments",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update appointment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"appointmentDate\": \"2023-12-30\",\n    \"appointmentTime\": \"15:00:00\",\n    \"patient\": {\n        \"userId\": 8362,\n        \"firstName\": \"user\",\n        \"lastName\": \"test\",\n        \"email\": \"user@email.com\",\n        \"mobile\": 13434234,\n        \"userType\": \"PATIENT\",\n        \"address\": \"Ja Ela\",\n        \"dob\": \"2000-07-16\"\n    },\n    \"dentist\": {\n        \"userId\": 2649,\n        \"firstName\": \"user\",\n        \"lastName\": \"test\",\n        \"email\": \"user@email.com\",\n        \"mobile\": 13434234,\n        \"userType\": \"DENTIST\",\n        \"specialization\": \"Nervs\",\n        \"qualification\": \"\",\n        \"password\": \"$2a$10$IX3UngozExomWQJVFq6FHeF//ox.KleJXSpDW4C0FOuz59uMfqZ7e\"\n    },\n    \"status\": \"PENDING\",\n    \"regFeeStatus\": \"PENDING\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/appointments/7088",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointments",
+								"7088"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update registration fee",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "status",
+									"value": "COMPLETE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/appointments/registration-fee/3734",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointments",
+								"registration-fee",
+								"3734"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update appointment status",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "status",
+									"value": "COMPLETE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/appointments/status/1200",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointments",
+								"status",
+								"1200"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete appointment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/appointments/1200",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"appointments",
+								"1200"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Invoices",
+			"item": [
+				{
+					"name": "Get all invoices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/invoices",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"invoices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get invoice by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/invoices/6193",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"invoices",
+								"6193"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get invoice by appointment id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/invoices/appointment/9139",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"invoices",
+								"appointment",
+								"9139"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get invoice by patient id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/invoices/patient/8362",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"invoices",
+								"patient",
+								"8362"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create invoice",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"treatmentId\": 4277,\n    \"appointment\": {\n        \"appointmentId\": 9139,\n        \"appointmentDate\": \"2023-12-30\",\n        \"appointmentTime\": \"19:00:00\",\n        \"patient\": {\n            \"userId\": 8362,\n            \"firstName\": \"user\",\n            \"lastName\": \"test\",\n            \"email\": \"user@email.com\",\n            \"mobile\": 13434234,\n            \"userType\": \"PATIENT\",\n            \"address\": \"Ja Ela\",\n            \"dob\": \"2000-07-16\"\n        },\n        \"dentist\": {\n            \"userId\": 2649,\n            \"firstName\": \"user\",\n            \"lastName\": \"test\",\n            \"email\": \"user@email.com\",\n            \"mobile\": 13434234,\n            \"userType\": \"DENTIST\",\n            \"specialization\": \"Nervs\",\n            \"qualification\": \"\",\n            \"password\": \"$2a$10$IX3UngozExomWQJVFq6FHeF//ox.KleJXSpDW4C0FOuz59uMfqZ7e\"\n        },\n        \"status\": \"PENDING\",\n        \"regFeeStatus\": \"PENDING\"\n    },\n    \"treatmentTypes\": [\n        {\n            \"id\": 9619,\n            \"treatmentTypeName\": \"Filling\",\n            \"treatmentTypePrice\": 3000.0\n        },\n        {\n            \"id\": 1297,\n            \"treatmentTypeName\": \"Whitening\",\n            \"treatmentTypePrice\": 1500.0\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/invoices",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"invoices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete invoice",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/invoices/6193",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"invoices",
+								"6193"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payments",
+			"item": [
+				{
+					"name": "Get all payments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/payments",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get payment by appointment id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/payments/appointment/7785",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payments",
+								"appointment",
+								"7785"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create payment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"invoice\": {\n        \"invoiceId\": 7326,\n        \"dateIssued\": \"2023-12-23\",\n        \"treatment\": {\n            \"treatmentId\": 4277,\n            \"appointment\": {\n                \"appointmentId\": 9139,\n                \"appointmentDate\": \"2023-12-30\",\n                \"appointmentTime\": \"19:00:00\",\n                \"patient\": {\n                    \"userId\": 8362,\n                    \"firstName\": \"user\",\n                    \"lastName\": \"test\",\n                    \"email\": \"user@email.com\",\n                    \"mobile\": 13434234,\n                    \"userType\": \"PATIENT\",\n                    \"address\": \"Ja Ela\",\n                    \"dob\": \"2000-07-16\"\n                },\n                \"dentist\": {\n                    \"userId\": 2649,\n                    \"firstName\": \"user\",\n                    \"lastName\": \"test\",\n                    \"email\": \"user@email.com\",\n                    \"mobile\": 13434234,\n                    \"userType\": \"DENTIST\",\n                    \"specialization\": \"Nervs\",\n                    \"qualification\": \"\",\n                    \"password\": \"$2a$10$IX3UngozExomWQJVFq6FHeF//ox.KleJXSpDW4C0FOuz59uMfqZ7e\"\n                },\n                \"status\": \"PENDING\",\n                \"regFeeStatus\": \"PENDING\"\n            },\n            \"treatmentTypes\": [\n                {\n                    \"id\": 9619,\n                    \"treatmentTypeName\": \"Filling\",\n                    \"treatmentTypePrice\": 3000.0\n                },\n                {\n                    \"id\": 1297,\n                    \"treatmentTypeName\": \"Whitening\",\n                    \"treatmentTypePrice\": 1500.0\n                }\n            ]\n        },\n        \"totalAmount\": 5500.0\n    },\n    \"paymentMethod\": \"CASH\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payments",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update payment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "paymentStatus",
+									"value": "COMPLETE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payments/9983",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payments",
+								"9983"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
