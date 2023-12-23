@@ -48,7 +48,8 @@ To get started with the project, follow these steps:
 ## Folder Sturcture
 Project structure is as follows.
 
-├── toothcare/            # Spring Boot backend application
+.
+├── toothcare/                # Spring Boot backend application
 │   ├── src/
 │   │   ├── main/
 │   │   │   ├── java/
@@ -69,11 +70,12 @@ Project structure is as follows.
 │   │   │       └── ...
 │   │   └── test/
 │   └── ...
-└── frontend/           # ReactJS frontend application with TypeScript
+
+└── frontend/                  # ReactJS frontend application with TypeScript
     ├── public/
     │   └── tooth.svg
     ├── src/
-    │   ├── assests/
+    │   ├── assets/
     │   ├── components/
     │   ├── config/
     │   ├── layouts/
@@ -81,21 +83,20 @@ Project structure is as follows.
     │   ├── routes/
     │   │   ├── services/
     │   │   │   ├── auth/
-    │   │   │   │   ├── Login/
-    │   │   │   ├── home/
-    │   │   │   │   ├── appointment/
-    │   │   │   │   ├── dentist/
-    │   │   │   │   ├── invoice/
-    │   │   │   │   ├── menu/
-    │   │   │   │   ├── patients/
-    │   │   │   │   ├── payments/
-    │   │   │   │   ├── schedules/
-    │   │   ├── LandingPage.tsx
-    │   ├── App.tsx
-    │   ├── index.css
-    │   ├── main.tsx
-    │   └── ...
-    ├── tsconfig.json
-    ├── package.json
+    │   │   │       ├── Login/
+    │   │   ├── home/
+    │   │   │   ├── appointment/
+    │   │   │   ├── dentist/
+    │   │   │   ├── invoice/
+    │   │   │   ├── menu/
+    │   │   │   ├── patients/
+    │   │   │   ├── payments/
+    │   │   │   ├── schedules/
+    │   ├── LandingPage.tsx
+    ├── App.tsx
+    ├── index.css
+    ├── main.tsx
     └── ...
-
+├── tsconfig.json
+├── package.json
+└── ...
