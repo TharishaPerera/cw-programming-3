@@ -12,6 +12,7 @@ import Dentists from "./routes/home/dentist";
 import Invoices from "./routes/home/invoices";
 import ViewInvoice from "./routes/home/invoices/view";
 import Payment from "./routes/home/payments";
+import CreateAppointment from "./routes/home/appointment/create";
 
 function App() {
   return (
@@ -27,11 +28,11 @@ function App() {
             {/* Appointments */}
             <Route path="/appointments">
               <Route index element={<Appointments />} />
-              {/* <Route path="create" element={<CreateAppointment />} />
-              <Route path="update/:id" element={<UpdateAppointment />} />
-              <Route path="by-date" element={<AppointmentsByDate />} />
-              <Route path="by-appointment-id" element={<AppointmentsById />} />
-              <Route path="by-name" element={<AppointmentsByName />} /> */}
+              <Route path="create" element={<CreateAppointment />} />
+              {/* <Route path="update/:id" element={<UpdateAppointment />} /> */}
+              {/* <Route path="by-date" element={<AppointmentsByDate />} /> */}
+              {/* <Route path="by-appointment-id" element={<AppointmentsById />} /> */}
+              {/* <Route path="by-name" element={<AppointmentsByName />} /> */}
             </Route>
             {/* Schedules */}
             <Route path="/schedules">
