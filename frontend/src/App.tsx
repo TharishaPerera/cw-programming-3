@@ -6,6 +6,8 @@ import { Toaster } from "sonner";
 import LandingPage from "./routes/LandingPage";
 import MenuPage from "./routes/home/menu";
 import Schedules from "./routes/home/schedules";
+import Appointments from "./routes/home/appointment";
+import Patients from "./routes/home/patients";
 
 function App() {
   return (
@@ -18,11 +20,24 @@ function App() {
           <Route path="/" element={<MainLayout />}>
             <Route index element={<LandingPage />} />
             <Route path="home" element={<MenuPage />} />
+            {/* Appointments */}
+            <Route path="/appointments">
+              <Route index element={<Appointments />} />
+              {/* <Route path="create" element={<CreateAppointment />} />
+              <Route path="update/:id" element={<UpdateAppointment />} />
+              <Route path="by-date" element={<AppointmentsByDate />} />
+              <Route path="by-appointment-id" element={<AppointmentsById />} />
+              <Route path="by-name" element={<AppointmentsByName />} /> */}
+            </Route>
             {/* Schedules */}
             <Route path="/schedules">
               <Route index element={<Schedules />} />
               {/* <Route path="create" element={<CreateAppointment />} />
               <Route path="update/:id" element={<UpdateAppointment />} /> */}
+            </Route>
+            {/* Patients */}
+            <Route path="/patients">
+              <Route index element={<Patients />} />
             </Route>
           </Route>
         </Routes>
