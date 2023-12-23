@@ -14,7 +14,14 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import {
   Table,
   TableBody,
@@ -32,9 +39,9 @@ interface Data {
   appointmentDate: String;
   appointmentTime: String;
   patient: {
-    firstName: String,
-    lastName: String,
-    mobile: number
+    firstName: String;
+    lastName: String;
+    mobile: number;
   };
   status: String;
   regFeeStatus: String;
@@ -276,13 +283,13 @@ const Appointments: React.FC = () => {
               <DropdownMenuLabel>Filter Appointments By</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem>
-                <Link to='by-date'>Appointment Date</Link>
+                <Link to="by-date">Appointment Date</Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Link to='by-appointment-id'>Appointment Id</Link>
+                <Link to="by-appointment-id">Appointment Id</Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Link to='by-name'>Patient Name</Link>
+                <Link to="by-name">Patient Name</Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -327,9 +334,13 @@ const Appointments: React.FC = () => {
                   <AlertDialog>
                     <AlertDialogTrigger>
                       {item.status == "COMPLETE" ? (
-                        <ToggleRight className="w-4 h-4" />
+                        <div title="Appointment Status Pending">
+                          <ToggleRight className="w-4 h-4" />
+                        </div>
                       ) : (
-                        <ToggleLeft className="w-4 h-4" />
+                        <div title="Appointment Status Complete">
+                          <ToggleLeft className="w-4 h-4" />
+                        </div>
                       )}
                     </AlertDialogTrigger>
                     <AlertDialogContent>
@@ -390,11 +401,16 @@ const Appointments: React.FC = () => {
                     onClick={() => handleRegFeeStatus(item.appointmentId)}
                     variant="secondary"
                     size="icon"
+                    // title="Registration Fee Status"
                   >
                     {item.regFeeStatus == "COMPLETE" ? (
-                      <ToggleRight className="w-4 h-4" />
+                      <div title="Registration Fee Pending">
+                        <ToggleRight className="w-4 h-4" />
+                      </div>
                     ) : (
-                      <ToggleLeft className="w-4 h-4" />
+                      <div title="Registration Fee Complete">
+                        <ToggleLeft className="w-4 h-4" />
+                      </div>
                     )}
                   </Button>
                   <Button
