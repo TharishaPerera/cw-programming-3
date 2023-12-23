@@ -20,3 +20,13 @@ To get started with the project, follow these steps:
 1. **Clone the repository**
    ```bash
    git clone https://github.com/your-username/your-repository.git
+2. **Install Dependencies**
+   ```bash
+    # Navigate to the backend folder
+    cd toothcare
+    ./mvnw clean install
+    
+    # Navigate to the frontend folder
+    cd ../frontend
+    npm install
+3. 
