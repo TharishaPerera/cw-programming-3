@@ -35,7 +35,8 @@ const LoginForm = () => {
         "Content-Type": "application/json",
       },
     });
-    if (!loginResponse.ok) {
+    const login = await loginResponse.json()
+    if (!login) {
       toast.error("Invalid credentials, please check and try again.");
     } else {
       window.location.href = "/home";

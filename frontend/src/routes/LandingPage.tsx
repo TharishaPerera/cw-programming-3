@@ -32,7 +32,12 @@ const handleGetStarted = async () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(item),
+        body: JSON.stringify({
+          dentist: item.dentist,
+          day: item.day,
+          startTime: item.startTime,
+          endTime: item.endTime
+        }),
       });
       if (!scheduleResponse.ok) {
         toast.error("Something went wrong while setting schedule data");

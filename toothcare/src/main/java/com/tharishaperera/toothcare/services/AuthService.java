@@ -4,6 +4,7 @@ import com.tharishaperera.toothcare.models.Dentist;
 import com.tharishaperera.toothcare.models.Receptionist;
 import com.tharishaperera.toothcare.models.User;
 import com.tharishaperera.toothcare.interfaces.UserWithPassword;
+import com.tharishaperera.toothcare.utils.SecurityConfig;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -11,10 +12,11 @@ import java.util.Optional;
 @Service
 public class AuthService {
     public Optional<User> login(String email, String password) {
-        return User.userList.stream()
-                .filter(user -> user.getEmail().equals(email))
-                .filter(user -> user instanceof Dentist || user instanceof Receptionist)
-                .filter(user -> ((UserWithPassword) user).getPassword().equals(password))
-                .findFirst();
+        for (User user : User.userList) {
+            if (user.getEmail().equals(email) && SecurityConfig.checkPassword(password, ((UserWithPassword) user).getPassword())) {
+                return Optional.of(user);
+            }
+        }
+        return Optional.empty();
     }
 }
