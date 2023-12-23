@@ -9,9 +9,9 @@ Toothcare is a full-stack web application built using Java Springboot for the ba
 Before you begin, ensure you have met the following requirements:
 
 - Java JDK installed on your computer
-  |- jdk version 17
+  ├── jdk version 17
 - NodeJS installed on your computer
-  |- NodeJS version v18.19.0 
+  ├── NodeJS version v18.19.0 
 
 ## Getting Started
 
@@ -19,7 +19,8 @@ To get started with the project, follow these steps:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/your-repository.git
+   git clone https://github.com/TharishaPerera/cw-programming-3.git
+   
 2. **Install Dependencies**
    ```bash
     # Navigate to the backend folder
@@ -29,4 +30,72 @@ To get started with the project, follow these steps:
     # Navigate to the frontend folder
     cd ../frontend
     npm install
-3. 
+   
+3. **Run the Application**
+   ```bash
+    # Start the backend server
+    cd ../toothcare
+    ./mvnw spring-boot:run
+    
+    # Start the frontend development server
+    cd ../frontend
+    npm run dev
+
+4. **Access the application**
+  - Open your web browser and go to http://localhost:5173 to access the frontend. (Depends on your available ports)
+  - The backend API is available at http://localhost:8080.
+
+## Folder Sturcture
+Project structure is as follows
+.
+├── toothcare/            # Spring Boot backend application
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/
+│   │   │   │   └── com.tharishaperera.toothcare/
+│   │   │   │       ├── config/
+│   │   │   │       │   ├── enums/
+│   │   │   │       ├── controllers/
+│   │   │   │       ├── factories/
+│   │   │   │       │   ├── treatmentTypes/
+│   │   │   │       ├── interfaces/
+│   │   │   │       ├── models/
+│   │   │   │       ├── requestTypes/
+│   │   │   │       ├── services/
+│   │   │   │       ├── utils/
+│   │   │   │       └── ToothcareApplication.java
+│   │   │   └── resources/
+│   │   │       ├── application.properties
+│   │   │       └── ...
+│   │   └── test/
+│   └── ...
+└── frontend/           # ReactJS frontend application with TypeScript
+    ├── public/
+    │   └── tooth.svg
+    ├── src/
+    │   ├── assests/
+    │   ├── components/
+    │   ├── config/
+    │   ├── layouts/
+    │   ├── lib/
+    │   ├── routes/
+    │   │   ├── services/
+    │   │   │   ├── auth/
+    │   │   │   │   ├── Login/
+    │   │   │   ├── home/
+    │   │   │   │   ├── appointment/
+    │   │   │   │   ├── dentist/
+    │   │   │   │   ├── invoice/
+    │   │   │   │   ├── menu/
+    │   │   │   │   ├── patients/
+    │   │   │   │   ├── payments/
+    │   │   │   │   ├── schedules/
+    │   │   ├── LandingPage.tsx
+    │   ├── App.tsx
+    │   ├── index.css
+    │   ├── main.tsx
+    │   └── ...
+    ├── tsconfig.json
+    ├── package.json
+    └── ...
+
