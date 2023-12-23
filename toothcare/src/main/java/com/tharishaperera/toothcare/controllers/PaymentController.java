@@ -12,6 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/payments")
+@CrossOrigin(origins = "${frontend.allowed-origin}")
 public class PaymentController {
     @Autowired
     private PaymentService paymentService;

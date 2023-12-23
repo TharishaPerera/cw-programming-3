@@ -13,6 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/treatment-types")
+@CrossOrigin(origins = "${frontend.allowed-origin}")
 public class TreatmentTypeController {
     @Autowired
     private TreatmentTypeService treatmentTypeService;

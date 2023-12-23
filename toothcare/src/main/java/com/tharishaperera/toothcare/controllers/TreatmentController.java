@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/treatments")
+@CrossOrigin(origins = "${frontend.allowed-origin}")
 public class TreatmentController {
     @Autowired
     private TreatmentService treatmentService;

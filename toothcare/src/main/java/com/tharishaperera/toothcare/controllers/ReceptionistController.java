@@ -12,6 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/users/receptionists")
+@CrossOrigin(origins = "${frontend.allowed-origin}")
 public class ReceptionistController {
     @Autowired
     private UserService userService;

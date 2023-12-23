@@ -1,37 +1,70 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { Button } from './components/ui/button'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AuthLayout from "./layouts/AuthLayout";
+import LoginPage from "./routes/auth/Login";
+import MainLayout from "./layouts/MainLayout";
+import { Toaster } from "sonner";
+import LandingPage from "./routes/LandingPage";
+import MenuPage from "./routes/home/menu";
+import Schedules from "./routes/home/schedules";
+import Appointments from "./routes/home/appointment";
+import Patients from "./routes/home/patients";
+import Dentists from "./routes/home/dentist";
+import Invoices from "./routes/home/invoices";
+import ViewInvoice from "./routes/home/invoices/view";
+import Payment from "./routes/home/payments";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <BrowserRouter>
+      <div className="bg-neutral-100 min-h-screen">
+        <Routes>
+          <Route path="/login" element={<AuthLayout />}>
+            <Route index element={<LoginPage />} />
+          </Route>
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<LandingPage />} />
+            <Route path="home" element={<MenuPage />} />
+            {/* Appointments */}
+            <Route path="/appointments">
+              <Route index element={<Appointments />} />
+              {/* <Route path="create" element={<CreateAppointment />} />
+              <Route path="update/:id" element={<UpdateAppointment />} />
+              <Route path="by-date" element={<AppointmentsByDate />} />
+              <Route path="by-appointment-id" element={<AppointmentsById />} />
+              <Route path="by-name" element={<AppointmentsByName />} /> */}
+            </Route>
+            {/* Schedules */}
+            <Route path="/schedules">
+              <Route index element={<Schedules />} />
+              {/* <Route path="create" element={<CreateAppointment />} />
+              <Route path="update/:id" element={<UpdateAppointment />} /> */}
+            </Route>
+            {/* Dentists */}
+            <Route path="/dentists">
+              <Route index element={<Dentists />} />
+              {/* <Route path="create" element={<CreateAppointment />} />
+              <Route path="update/:id" element={<UpdateAppointment />} /> */}
+            </Route>
+            {/* Patients */}
+            <Route path="/patients">
+              <Route index element={<Patients />} />
+            </Route>
+            {/* Invoices */}
+            <Route path="/invoices">
+              <Route index element={<Invoices />} />
+              <Route path="view/:id" element={<ViewInvoice />} />
+            </Route>
+            {/* Payments */}
+            <Route path="/payments">
+              <Route index element={<Payment />} />
+              <Route path="view/:id" element={<ViewInvoice />} />
+            </Route>
+          </Route>
+        </Routes>
+        <Toaster />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <Button>HERE</Button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

@@ -14,6 +14,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/appointments")
+@CrossOrigin(origins = "${frontend.allowed-origin}")
 public class AppointmentController {
     @Autowired
     private AppointmentService appointmentService;

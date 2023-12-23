@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/users")
+@CrossOrigin(origins = "${frontend.allowed-origin}")
 public class UserController {
     @Autowired
     private UserService userService;
