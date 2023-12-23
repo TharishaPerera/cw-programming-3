@@ -9,6 +9,8 @@ import Schedules from "./routes/home/schedules";
 import Appointments from "./routes/home/appointment";
 import Patients from "./routes/home/patients";
 import Dentists from "./routes/home/dentist";
+import Invoices from "./routes/home/invoices";
+import ViewInvoice from "./routes/home/invoices/view";
 
 function App() {
   return (
@@ -45,6 +47,11 @@ function App() {
             {/* Patients */}
             <Route path="/patients">
               <Route index element={<Patients />} />
+            </Route>
+            {/* Invoices */}
+            <Route path="/invoices">
+              <Route index element={<Invoices />} />
+              <Route path="view/:id" element={<ViewInvoice />} />
             </Route>
           </Route>
         </Routes>
