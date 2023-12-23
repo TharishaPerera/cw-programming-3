@@ -67,7 +67,7 @@ const AppointmentForm = () => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch(API_URL + "/users/dentists"); // Replace with your API endpoint
+        const response = await fetch(API_URL + "/users/dentists");
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
