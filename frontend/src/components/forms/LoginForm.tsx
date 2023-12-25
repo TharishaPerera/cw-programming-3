@@ -70,7 +70,7 @@ const LoginForm = () => {
               </FormItem>
             )}
           />
-          <Button type="submit" className="w-full">Submit</Button>
+          <Button type="submit" className="w-full">Login</Button>
         </form>
       </Form>
     </>
