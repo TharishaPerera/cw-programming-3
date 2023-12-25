@@ -44,3 +44,12 @@ To get started with the project, follow these steps:
 4. **Access the application**
   - Open your web browser and go to http://localhost:5173 to access the frontend. (Depends on your available ports)
   - The backend API is available at http://localhost:8080.
+    
+  - Use the following credentials to log into the system
+    ```bash
+      # username / email
+      gayani@toothcare.com
+
+      # password
+      gayani@1234
+      
